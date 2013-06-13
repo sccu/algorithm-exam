@@ -1,9 +1,11 @@
-package pe.sccu.algorithm.disjointset;
+package pe.sccu.ds.disjointset;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+
+import pe.sccu.ds.disjointset.DisjointSet;
 
 public class DisjointSetTest {
 
@@ -19,10 +21,10 @@ public class DisjointSetTest {
         assertTrue(a.find() != b.find());
         assertTrue(c.find() == b.find());
         assertTrue(a.find() == d.find());
-        assertEquals(2, (int) c.find().getData());
-        assertEquals(2, (int) b.find().getData());
-        assertEquals(1, (int) a.find().getData());
-        assertEquals(1, (int) d.find().getData());
+        assertEquals(2, (int) c.find().get());
+        assertEquals(2, (int) b.find().get());
+        assertEquals(1, (int) a.find().get());
+        assertEquals(1, (int) d.find().get());
     }
 
 }

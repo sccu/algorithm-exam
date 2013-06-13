@@ -1,4 +1,4 @@
-package pe.sccu.algorithm.disjointset;
+package pe.sccu.ds.disjointset;
 
 public class DisjointSet<T> {
 
@@ -37,7 +37,7 @@ public class DisjointSet<T> {
         return parent;
     }
 
-    public T getData() {
+    public T get() {
         return data;
     }
 }

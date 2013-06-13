@@ -1,10 +1,13 @@
-package pe.sccu.algorithm.graph;
+package pe.sccu.ds.graph;
 
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
 import org.junit.Test;
+
+import pe.sccu.ds.graph.Edge;
+import pe.sccu.ds.graph.Graph;
 
 public class GraphTest {
 

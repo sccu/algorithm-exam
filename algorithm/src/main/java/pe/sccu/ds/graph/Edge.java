@@ -1,4 +1,4 @@
-package pe.sccu.algorithm.graph;
+package pe.sccu.ds.graph;
 
 public class Edge {
 
