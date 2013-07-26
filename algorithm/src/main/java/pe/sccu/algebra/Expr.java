@@ -1,0 +1,45 @@
+package pe.sccu.algebra;
+
+public abstract class Expr {
+    public static Expr factor(double num) {
+        return Constant.create(num);
+    }
+
+    public static Expr factor(String var) {
+        return Variable.create(var);
+    }
+
+    public Expr add(Expr other) {
+        if ((this instanceof Constant) && (other instanceof Constant)) {
+            return Constant.create(((Constant) this).getValue() + ((Constant) other).getValue());
+        } else if (Constant.same(this, 0)) {
+            return other;
+        } else if (Constant.same(other, 0)) {
+            return this;
+        } else {
+            return new Sum(this, other);
+        }
+    }
+
+    public abstract Expr derive(String var);
+
+    public Expr mul(Expr other) {
+        if ((this instanceof Constant) && (other instanceof Constant)) {
+            return Constant.create(((Constant) this).getValue() * ((Constant) other).getValue());
+        } else if (Constant.same(this, 0) || Constant.same(other, 0)) {
+            return Constant.create(0);
+        } else if (Constant.same(this, 1)) {
+            return other;
+        } else if (Constant.same(other, 1)) {
+            return this;
+        } else {
+            return new Product(this, other);
+        }
+    }
+
+    @Override
+    public String toString() {
+        throw new UnsupportedOperationException("add");
+    }
+
+}
