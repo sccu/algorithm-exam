@@ -2,14 +2,20 @@ package pe.sccu.algebra;
 
 public class Constant extends Expr {
 
-    private static final Expr ZERO = new Constant(0);
-    private static final Expr ONE = new Constant(1);
+    static final Constant ZERO = new Constant(0);
+    static final Constant ONE = new Constant(1);
+    static final Constant PI = new Constant(Math.PI);
+    static final Constant E = new Constant(Math.E);
 
     static Expr create(double c) {
         if (same(ZERO, c)) {
             return ZERO;
         } else if (same(ONE, c)) {
             return ONE;
+        } else if (same(PI, c)) {
+            return PI;
+        } else if (same(E, c)) {
+            return E;
         } else {
             return new Constant(c);
         }
@@ -44,9 +50,12 @@ public class Constant extends Expr {
         long l = Math.round(c);
         if (same(this, l)) {
             return String.valueOf(l);
+        } else if (same(this, Math.PI)) {
+            return "PI";
+        } else if (same(this, Math.E)) {
+            return "e";
         } else {
             return String.valueOf(c);
         }
     }
-
 }
