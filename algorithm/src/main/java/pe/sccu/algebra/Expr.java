@@ -12,7 +12,7 @@ public abstract class Expr {
     public static Expr ln(Expr expr) {
         if (Constant.same(expr, 1)) {
             return Constant.create(0);
-        } else if (Constant.same(expr, Constant.E.getValue())) {
+        } else if (Constant.same(expr, Constant.E)) {
             return Constant.create(1);
         } else {
             return NaturalLog.create(expr);
@@ -43,10 +43,6 @@ public abstract class Expr {
         } else {
             return Exponentiation.create(this, exponent);
         }
-    }
-
-    public Expr exp(Expr exponent) {
-        return new Exponentiation(this, exponent);
     }
 
     public Expr mul(Expr other) {

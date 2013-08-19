@@ -2,10 +2,10 @@ package pe.sccu.algebra;
 
 public class Constant extends Expr {
 
-	private static final Expr ZERO = new Constant(0);
-	private static final Expr ONE = new Constant(1);
-	private static final Expr PI = new Constant(Math.PI);
-	private static final Expr E = new Constant(Math.E);
+    static final Constant ZERO = new Constant(0);
+    static final Constant ONE = new Constant(1);
+    static final Constant PI = new Constant(Math.PI);
+    static final Constant E = new Constant(Math.E);
 
     static Expr create(double c) {
         if (same(ZERO, c)) {
@@ -21,29 +21,33 @@ public class Constant extends Expr {
         }
     }
 
-	static boolean same(Expr expr, double num) {
-		if (!(expr instanceof Constant)) {
-			return false;
-		}
+    static boolean same(Expr expr, Constant c) {
+        return (expr == c)  || same(expr, c.getValue());
+    }
 
-		double val = ((Constant) expr).getValue();
-		return Math.abs(val - num) < Double.MIN_VALUE * 10;
-	}
+    static boolean same(Expr expr, double num) {
+        if (!(expr instanceof Constant)) {
+            return false;
+        }
 
-	private final double c;
+        double val = ((Constant) expr).getValue();
+        return Math.abs(val - num) < Double.MIN_VALUE * 10;
+    }
 
-	private Constant(double c) {
-		this.c = c;
-	}
+    private final double c;
 
-	@Override
-	public Expr derive(String var) {
-		return ZERO;
-	}
+    private Constant(double c) {
+        this.c = c;
+    }
 
-	double getValue() {
-		return c;
-	}
+    @Override
+    public Expr derive(String var) {
+        return ZERO;
+    }
+
+    double getValue() {
+        return c;
+    }
 
     @Override
     public String toString() {

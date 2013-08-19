@@ -18,7 +18,6 @@ terminal		    MUL;
 terminal            LPAREN;
 terminal            RPAREN;
 
-
 non terminal    Expr    grammar;
 non terminal    Expr    expr;
 non terminal    Expr    term;

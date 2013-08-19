@@ -49,11 +49,11 @@ import static pe.sccu.algebra.parser.AlgebraSym.*;
 
 DIGIT       =   [:digit:]
 NUM         =   {DIGIT}+([.]{DIGIT}+)?
+EXP         =   \^
 PLUS        =   \+
 MUL         =   \*
 LPAREN      =   \(
 RPAREN      =   \)
-//VAR         =   [:alpha:][:alphanumeric:]*
 VAR         =   [:jletter:][:jletterdigit:]*
 WS          =   \r | \n | \r\n | [ \t\f]
 
@@ -61,6 +61,7 @@ WS          =   \r | \n | \r\n | [ \t\f]
 
 {NUM}       {   return sym(NUM, Expr.factor(Double.parseDouble(yytext()))); }
 {VAR}       {   return sym(VAR, Expr.factor(yytext())); }
+{EXP}      {   return sym(EXP); }
 {PLUS}      {   return sym(PLUS); }
 {MUL}       {   return sym(MUL); }
 {LPAREN}    {   return sym(LPAREN); }
