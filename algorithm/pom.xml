@@ -27,5 +27,10 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>de.jflex</groupId>
+            <artifactId>maven-jflex-plugin</artifactId>
+            <version>1.4.3</version>
+        </dependency>
   </dependencies>
 </project>

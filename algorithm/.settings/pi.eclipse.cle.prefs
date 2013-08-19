@@ -1,0 +1,15 @@
+//src/main/java/pe/sccu/algebra/Algebra.cup/cup-compact-red=true
+//src/main/java/pe/sccu/algebra/Algebra.cup/cup-debug=false
+//src/main/java/pe/sccu/algebra/Algebra.cup/cup-expected-conflicts=0
+//src/main/java/pe/sccu/algebra/Algebra.cup/cup-no-positions=false
+//src/main/java/pe/sccu/algebra/Algebra.cup/cup-no-scanner=false
+//src/main/java/pe/sccu/algebra/Algebra.cup/cup-non-terms=false
+//src/main/java/pe/sccu/algebra/Algebra.cup/cup-output=src/main/java
+//src/main/java/pe/sccu/algebra/Algebra.cup/cup-parser-class=AlgebraCup
+//src/main/java/pe/sccu/algebra/Algebra.cup/cup-symbols-class=AlgebraSym
+//src/main/java/pe/sccu/algebra/Algebra.cup/cup-symbols-if=true
+//src/main/java/pe/sccu/algebra/Algebra.lex/lex-code-method=0
+//src/main/java/pe/sccu/algebra/Algebra.lex/lex-comply-jlex=false
+//src/main/java/pe/sccu/algebra/Algebra.lex/lex-output=src/main/java
+//src/main/java/pe/sccu/algebra/Algebra.lex/lex-skip-min=false
+eclipse.preferences.version=1

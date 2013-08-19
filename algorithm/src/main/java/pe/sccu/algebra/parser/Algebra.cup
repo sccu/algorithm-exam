@@ -1,0 +1,74 @@
+package pe.sccu.algebra.parser;
+
+import pe.sccu.algebra.Expr;
+
+parser code
+{:
+:}
+
+action code
+{:
+:}
+
+terminal Expr       NUM;
+terminal Expr       VAR;           
+terminal            EXP;
+terminal		    PLUS;
+terminal		    MUL;
+terminal            LPAREN;
+terminal            RPAREN;
+
+
+non terminal    Expr    grammar;
+non terminal    Expr    expr;
+non terminal    Expr    term;
+non terminal    Expr    factor;
+
+precedence  right       EXP;
+
+
+grammar         ::=     expr:e1
+                        {:
+                            RESULT = e1;
+                        :}
+                        ;
+expr            ::=     expr:e1 PLUS term:e2
+                        {:
+                            RESULT = e1.add(e2);
+                        :}
+                        |
+                        term:e1
+                        {:
+                            RESULT = e1;
+                        :}
+                        ;
+term            ::=     term:e1 MUL factor:e2
+                        {:
+                            RESULT = e1.mul(e2);
+                        :}
+                        |
+                        factor:e1
+                        {:
+                            RESULT = e1;
+                        :}
+                        ;
+factor          ::=     NUM:e1
+                        {:
+                            RESULT = e1;
+                        :}
+                        |
+                        VAR:e1
+                        {:
+                            RESULT = e1;
+                        :}
+                        |
+                        factor:e1 EXP factor:e2
+                        {:
+                            RESULT = e1.exp(e2);
+                        :}
+                        |
+                        LPAREN expr:e1 RPAREN
+                        {:
+                            RESULT = e1;
+                        :}
+                        ;

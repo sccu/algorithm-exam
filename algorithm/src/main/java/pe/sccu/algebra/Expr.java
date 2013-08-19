@@ -45,6 +45,10 @@ public abstract class Expr {
         }
     }
 
+    public Expr exp(Expr exponent) {
+        return new Exponentiation(this, exponent);
+    }
+
     public Expr mul(Expr other) {
         if ((this instanceof Constant) && (other instanceof Constant)) {
             return Constant.create(((Constant) this).getValue() * ((Constant) other).getValue());
